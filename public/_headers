@@ -1,0 +1,8 @@
+/assets/*.js
+  Content-Type: application/javascript
+/assets/*.css
+  Content-Type: text/css
+/assets/*.svg
+  Content-Type: image/svg+xml
+/favicon.svg
+  Content-Type: image/svg+xml
