@@ -17,12 +17,14 @@
 .hero-3d {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /* Account for the fixed header so hero fills the visible viewport */
+  min-height: calc(100vh - var(--header-height));
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background: #0f051e;
+  padding-top: var(--header-height);
 }
 
 .hero-bg-3d {
@@ -130,8 +132,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  inset: 0;
+  /* limit content area to visible viewport under header */
+  top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .hero-welcome-container {

@@ -50,7 +50,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+        <ul id="main-navigation" className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           <li><NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink></li>
           <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
           <li><NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</NavLink></li>
@@ -76,9 +76,12 @@ export default function Navbar() {
             </div>
             {coursesOpen && (
               <div className="dropdown-menu">
-                <div style={{ padding: '8px 12px', borderBottom: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className="dropdown-sheet-header" style={{ padding: '8px 12px' }}>
                   <strong style={{ fontSize: 14 }}>Browse Classes</strong>
-                  <Link to="/courses" onClick={() => { setCoursesOpen(false); setMenuOpen(false); }} style={{ fontSize: 13 }}>View All</Link>
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <Link to="/courses" onClick={() => { setCoursesOpen(false); setMenuOpen(false); }} style={{ fontSize: 13 }}>View All</Link>
+                    <button className="sheet-close" aria-label="Close classes" onClick={() => setCoursesOpen(false)}>✕</button>
+                  </div>
                 </div>
                 <div className="dropdown-grid">
                   {courses.map((course) => (
@@ -116,8 +119,14 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Hamburger */}
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        {/* Menu toggle (kebab) - accessible */}
+        <button
+          className={`hamburger kebab ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
+          aria-label={menuOpen ? 'Close main menu' : 'Open main menu'}
+        >
           <span /><span /><span />
         </button>
       </div>

@@ -70,6 +70,11 @@
   --header-height: 64px;
 }
 
+/* Reduce header height on small screens for better visible area */
+@media (max-width: 768px) {
+  :root { --header-height: 52px; }
+}
+
 /* ============================================================
    RESET & BASE
    ============================================================ */
