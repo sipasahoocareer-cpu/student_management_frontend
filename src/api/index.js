@@ -16,11 +16,11 @@ export const apiConfigError =
 
 export const apiBaseURL = apiConfigError
   ? ''
-  : configuredBaseURL || (isLocalPage ? 'https://student-managment-backend-2hwz.onrender.com' : '');
+  : configuredBaseURL || (isLocalPage ? 'https://student-management-backend-jqc5.onrender.com' : '');
 
-export const apiBaseURLDisplay = configuredBaseURL || apiBaseURL || 'https://student-managment-backend-2hwz.onrender.com';
+export const apiBaseURLDisplay = configuredBaseURL || apiBaseURL || 'https://student-management-backend-jqc5.onrender.com';
 
-const effectiveBaseURL = apiBaseURL || 'https://student-managment-backend-2hwz.onrender.com'; 
+const effectiveBaseURL = apiBaseURL || 'https://student-management-backend-jqc5.onrender.com'; 
 
 const API = axios.create({
   baseURL: effectiveBaseURL,
