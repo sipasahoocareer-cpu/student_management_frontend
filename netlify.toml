@@ -1,0 +1,34 @@
+[build]
+  command = "npm run build"
+  publish = "frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[headers]]
+  for = "/assets/*.js"
+  [headers.headers]
+    Content-Type = "application/javascript"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/assets/*.css"
+  [headers.headers]
+    Content-Type = "text/css"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/assets/*.svg"
+  [headers.headers]
+    Content-Type = "image/svg+xml"
+
+[[headers]]
+  for = "/**/*.js"
+  [headers.headers]
+    Content-Type = "application/javascript"
+    X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
