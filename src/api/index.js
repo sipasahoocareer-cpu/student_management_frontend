@@ -9,7 +9,7 @@ const remoteProductionPage = import.meta.env.PROD && !isLocalPage;
 
 export const apiConfigError =
   remoteProductionPage && !configuredBaseURL
-    ? 'Frontend is deployed without VITE_API_BASE_URL. Set it to your Render backend URL in Netlify and redeploy.'
+    ? 'Frontend is deployed without VITE_API_BASE_URL. Set it to your Render backend URL in Netlify and do redeploy.'
     : remoteProductionPage && configuredLocalAPI
       ? `Frontend is deployed with VITE_API_BASE_URL=${configuredBaseURL}. Set VITE_API_BASE_URL to your Render backend URL in Netlify and redeploy.`
       : '';
